@@ -2,12 +2,15 @@
 import gallery from "./gallery-items.js";
 
 
-const galleryList = document.querySelector("#js-gallery");
+const galleryList = document.querySelector(".js-gallery");
+сonst window = document.querySelector(".js-lightbox");
 
-const makeList = ({ original, description }) => {
+const makeList = ({ preview, original, description }) => {
   return `
   <li class = "gallery__item">
-    <img src="${original}" alt="${description}" >
+  <a class = "gallery__link" href = "${original}">
+    <img class ="gallery__img" src="${preview}" data-source = "${orginal}" alt="${description}" />
+    </a>
   </li>
   `;
 };
