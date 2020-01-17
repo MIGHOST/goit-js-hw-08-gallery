@@ -1,7 +1,8 @@
 "use strict";
 import gallery from "./gallery-items.js";
 
-
+const galleryList = document.querySelector(".js-gallery");
+const modalWindow = document.querySelector(".js-lightbox")
 const list = creatElement(gallery);
 
 function creatElement ({preview, original, description}) {
@@ -22,8 +23,27 @@ function creatElement ({preview, original, description}) {
 
 const makeImageList = gallery.map((item) => creatElement(item));
 
-console.log(makeImageList)
-const galleryList = document.querySelector(".js-gallery");
 galleryList.append(...makeImageList);
 
-const a =1; 
+const assignmentAttribute = (item, src, alt) => {
+    const modalImage = document.querySelector("lightbox__image");
+
+    modalImage.getAttribute("src", src);
+    modalImage.getAttribute("alt", alt);
+}
+
+const clickList = event => {
+    event.preventDefault();
+    if (event.target === event.currentTarget) {
+        return
+    }
+}
+const imgUrl = event.target.dataset.source;
+const imgAlt = event.target.getAttribute("alt");
+
+assignmentAttribute(modalWindow, imgUrl, imgAlt);
+modalWindow.classList.add("is-open")
+
+
+
+
