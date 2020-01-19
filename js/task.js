@@ -34,7 +34,7 @@ console.log(galleryList);
 
 
 galleryList.addEventListener("click", e => {
-    e.preventDefault() 
+    e.preventDefault()
     modalWindow.classList.add("is-open");
     assignmentAttribute(e.target.dataset.source, e.target.alt);
 
@@ -52,9 +52,5 @@ const assignmentAttribute = (src, alt) => {
 const closeModal = () => {
     assignmentAttribute("", "");
     modalWindow.classList.remove("is-open");
-} 
+}
 closeButton.addEventListener("click", closeModal);
-
-galleryList.addEventListener('keypress', function (e) {
-    if(e.code === "Escape") closeModal();
-  }); 
