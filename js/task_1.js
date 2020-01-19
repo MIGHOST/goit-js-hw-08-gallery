@@ -22,4 +22,9 @@ const imageList = makeImageList(gallery);
 
 galleryList.innerHTML = imageList;
 
-
+const clickList = event => {
+  event.preventDefault();
+  if (event.target === event.currentTarget) {
+      return
+  }
+}
