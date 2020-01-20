@@ -28,10 +28,7 @@ function creatElement({
 
 const makeImageList = gallery.map((item) => creatElement(item));
 
-
 galleryList.append(...makeImageList);
-console.log(galleryList);
-
 
 galleryList.addEventListener("click", e => {
     e.preventDefault()
@@ -39,8 +36,6 @@ galleryList.addEventListener("click", e => {
     assignmentAttribute(e.target.dataset.source, e.target.alt);
 
 });
-
-
 
 const assignmentAttribute = (src, alt) => {
     const modalImage = document.querySelector(".lightbox__image");
@@ -54,3 +49,12 @@ const closeModal = () => {
     modalWindow.classList.remove("is-open");
 }
 closeButton.addEventListener("click", closeModal);
+
+window.addEventListener("keydown", e=> {
+   
+    if(e.key !== "Escape") {
+        return;
+    } 
+    closeModal();
+});
+
