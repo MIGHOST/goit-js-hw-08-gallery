@@ -5,6 +5,7 @@ const galleryList = document.querySelector(".js-gallery");
 const modalWindow = document.querySelector(".js-lightbox");
 const closeButton = document.querySelector("button[data-action ='close-lightbox']");
 const list = creatElement(gallery);
+const image = document.querySelector(".lightbox__image");
 
 function creatElement({
     preview,
@@ -57,4 +58,11 @@ window.addEventListener("keydown", e=> {
     } 
     closeModal();
 });
+
+
+modalWindow.addEventListener("click", e => {
+if(e.target === image){
+    return
+} closeModal()
+})
 
